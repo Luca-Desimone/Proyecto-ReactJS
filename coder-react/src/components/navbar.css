@@ -1,22 +1,21 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem 2rem;
-
 }
 img {
   max-width: 100px;
   height: auto;
-
+  border-radius: 15px;
 }
 .logo-container {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -42,16 +41,14 @@ img {
 
 .cart-widget {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .cart-widget img {
   max-width: 30px;
-  margin-right: 1rem; 
+  margin-right: 1rem;
 }
 
 .cart-widget .item-count {
-  padding: 0.3rem 1rem; 
+  padding: 0.3rem 1rem;
 }
-
-
