@@ -1,10 +1,14 @@
-import { BiCart } from 'react-icons/bi'; 
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const CartWidget = () => {
+  const itemCount = 5;
+
   return (
     <div className="cart-widget">
-      <BiCart size={24} /> 
-      <span className="item-count">1</span>
+      <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+      <span className="item-count">{itemCount}</span>
     </div>
   );
 };
