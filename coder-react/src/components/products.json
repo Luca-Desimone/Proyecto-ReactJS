@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "nombre": "Laptop",
+      "descripcion": "Laptop de última generación con procesador Intel Core i7 y pantalla retina de 15 pulgadas",
+      "precio": 1500,
+      "category": "Laptops"
+    },
+    {
+      "id": 2,
+      "nombre": "Teléfono inteligente",
+      "descripcion": "Teléfono inteligente con cámara de alta resolución, pantalla OLED y reconocimiento facial",
+      "precio": 800,
+      "category": "Phones"
+    },
+    {
+      "id": 3,
+      "nombre": "Tableta",
+      "descripcion": "Tableta compacta con lápiz óptico y capacidad de almacenamiento de 128 GB",
+      "precio": 500,
+      "category": "Phones"
+    },
+    {
+      "id": 4,
+      "nombre": "Auriculares inalámbricos",
+      "descripcion": "Auriculares inalámbricos con cancelación de ruido activa y sonido envolvente",
+      "precio": 200,
+      "category": "Accessories"
+    },
+    {
+      "id": 5,
+      "nombre": "Smartwatch",
+      "descripcion": "Smartwatch con GPS integrado, monitor de frecuencia cardíaca y resistencia al agua",
+      "precio": 300,
+      "category": "Accessories"
+    },
+    {
+      "id": 6,
+      "nombre": "Camiseta",
+      "descripcion": "Camiseta de algodón orgánico con diseño estampado",
+      "precio": 20,
+      "category": "Clothes"
+    },
+    {
+      "id": 7,
+      "nombre": "Pantalones vaqueros",
+      "descripcion": "Pantalones vaqueros clásicos de corte regular",
+      "precio": 50,
+      "category": "Clothes"
+    },
+    {
+      "id": 8,
+      "nombre": "Mochila",
+      "descripcion": "Mochila resistente al agua con compartimento para portátil",
+      "precio": 40,
+      "category": "Accessories"
+    },
+    {
+      "id": 9,
+      "nombre": "Mouse inalámbrico",
+      "descripcion": "Mouse inalámbrico ergonómico con sensor óptico de alta precisión",
+      "precio": 25,
+      "category": "Accessories"
+    },
+    {
+      "id": 10,
+      "nombre": "Teclado Bluetooth",
+      "descripcion": "Teclado Bluetooth compacto y ligero para dispositivos móviles",
+      "precio": 30,
+      "category": "Accessories"
+    }
+]
