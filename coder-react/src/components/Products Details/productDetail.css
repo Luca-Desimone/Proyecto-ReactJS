@@ -1,8 +1,8 @@
 .item-detail-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
   }
   

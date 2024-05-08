@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importa Link desde React Router DOM
+import { Link } from 'react-router-dom'; 
 import CartWidget from '../cartwidget';
 import './navbar.css';
 import logo from '../images/Logo.jpeg';
