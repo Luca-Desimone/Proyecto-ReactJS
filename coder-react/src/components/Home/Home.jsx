@@ -1,5 +1,5 @@
 import NavBar from '../NavBar/navbar';
-import ItemListContainer from '../itemlistcontainer';
+import ItemListContainer from '../itemlistcontainer/itemlistcontainer';
 import "./Home.css"
 const Home = () => {
   return (

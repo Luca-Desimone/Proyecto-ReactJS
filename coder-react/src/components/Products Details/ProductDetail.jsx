@@ -1,32 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ItemDetail from '../ItemsDetails/itemDetail';
 import ItemCount from '../ItemsDetails/itemCount';
-import productosData from '../products.json';
+import { fetchProducto } from '../Products List/firebaseproducts'; 
 import './productDetail.css';
 
 const ItemDetailContainer = () => {
   const { id } = useParams(); 
-  const [product, setProduct] = useState(null);
+  const [producto, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('cartItems');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   useEffect(() => {
-    const fetchProduct = () => {
-      const foundProduct = productosData.find(producto => producto.id === parseInt(id));
-      setProduct(foundProduct);
+    const fetchProductFromFirebase = async () => {
+      try {
+        const fetchedProducts = await fetchProducto(); 
+        const foundProduct = fetchedProducts.find(product => product.id === id); 
+        if (foundProduct) {
+          setProduct(foundProduct); 
+          setLoading(false);
+        } else {
+          setLoading(false);
+        }
+      } catch (error) {
+        setLoading(false);
+      }
     };
 
-    fetchProduct();
+    fetchProductFromFirebase();
   }, [id]);
+
+  const handleAddToCart = (count) => {
+    const newCartItem = {
+      id: producto.id,
+      name: producto.nombre,
+      price: producto.precio,
+      quantity: count
+    };
+
+    const updatedCartItems = [...cartItems, newCartItem];
+    setCartItems(updatedCartItems);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  };
 
   return (
     <div className="item-detail-container">
-      {product ? (
+      <Link to="/products" className="back-button">←Volver</Link>
+      {loading ? (
+        <p>Cargando...</p>
+      ) : producto ? (
         <div>
-          <ItemDetail product={product} />
-          <ItemCount initial={1} stock={10} /> 
+          <ItemDetail producto={producto} />
+          <ItemCount initial={1} stock={producto.stock} onAdd={handleAddToCart} /> 
         </div>
       ) : (
-        <p>Cargando...</p>
+        <p>No se encontró el producto</p>
       )}
     </div>
   );
