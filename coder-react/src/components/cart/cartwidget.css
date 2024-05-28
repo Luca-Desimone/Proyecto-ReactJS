@@ -1,0 +1,11 @@
+.item-counte {
+    background-color: red;
+    color: white;
+    gap: 20px;
+    padding: 3px 5px; 
+    border-radius: 20%; 
+  }
+  
+.carro{
+    padding-right: 10px;
+}

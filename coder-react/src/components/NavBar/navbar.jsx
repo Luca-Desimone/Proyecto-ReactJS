@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import CartWidget from '../cartwidget';
+import CartWidget from '../cart/cartwidget';
 import './navbar.css';
 import logo from '../images/Logo.jpeg';
 
