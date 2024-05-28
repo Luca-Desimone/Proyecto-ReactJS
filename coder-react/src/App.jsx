@@ -14,6 +14,7 @@ import CartPage from './components/cart/cart';
 const App = () => {
   return (
     <Router>
+      <CartProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductsPage />} />
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/carrito" element={<CartPage />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      </CartProvider>
     </Router>
   );
 };
