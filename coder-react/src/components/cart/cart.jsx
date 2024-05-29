@@ -9,6 +9,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [purchaseId, setPurchaseId] = useState(null); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,9 +49,11 @@ const Cart = () => {
       });
       console.log("Document written with ID: ", docRef.id);
       
+      setPurchaseId(docRef.id);
+
       Swal.fire({
         title: "¡Gracias Por Su Compra!",
-        text: "Esperamos que la disfrute",
+        text: `Su ID de compra es: ${docRef.id}. Esperamos que la disfrute`,
         icon: "success"
       });
 
