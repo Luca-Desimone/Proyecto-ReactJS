@@ -54,7 +54,7 @@ const ItemDetailContainer = () => {
       ) : producto ? (
         <div>
           <ItemDetail producto={producto} />
-          <ItemCount initial={1} stock={producto.stock} onAdd={handleAddToCart} /> 
+          <ItemCount initial={1} productId={producto.id} onAdd={handleAddToCart} /> 
         </div>
       ) : (
         <p>No se encontró el producto</p>

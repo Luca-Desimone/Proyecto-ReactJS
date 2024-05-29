@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db, doc, getDoc, updateDoc } from '../../firebase/firebase'; 
 import "./itemCount.css";
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, productId, onAdd }) => {
   const [count, setCount] = useState(initial);
+  const [stock, setStock] = useState(0);
+
+  useEffect(() => {
+    const fetchStock = async () => {
+      try {
+        const productDoc = await getDoc(doc(db, 'productos', productId));
+        if (productDoc.exists()) {
+          setStock(productDoc.data().stock);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching stock: ", error);
+      }
+    };
+
+    fetchStock();
+  }, [productId]);
+
 
   const handleIncrement = () => {
     if (count < stock) {
@@ -16,10 +36,18 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     }
   };
 
-  const handleAddToCart = () => {
-    if (onAdd) {
-      onAdd(count);
-      console.log(`Se agregaron ${count} productos al carrito.`);
+  const handleAddToCart = async () => {
+    if (onAdd && count <= stock) {
+      try {
+        await updateDoc(doc(db, 'productos', productId), {
+          stock: stock - count
+        });
+        setStock(stock - count);
+        onAdd(count);
+        console.log(`Se agregaron ${count} productos al carrito.`);
+      } catch (error) {
+        console.error("Error updating stock: ", error);
+      }
     }
   };
 
