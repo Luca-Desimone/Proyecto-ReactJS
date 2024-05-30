@@ -23,7 +23,6 @@ const ItemCount = ({ initial, productId, onAdd }) => {
     fetchStock();
   }, [productId]);
 
-
   const handleIncrement = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -53,10 +52,16 @@ const ItemCount = ({ initial, productId, onAdd }) => {
 
   return (
     <div className="item-count">
-      <button onClick={handleDecrement} className='count-button'>-</button>
-      <span className="count-display">{count}</span>
-      <button onClick={handleIncrement} className='count-button'>+</button>
-      <button onClick={handleAddToCart} className='add-to-cart-button'>Agregar al carrito</button>
+      {stock > 0 ? (
+        <>
+          <button onClick={handleDecrement} className='count-button'>-</button>
+          <span className="count-display">{count}</span>
+          <button onClick={handleIncrement} className='count-button'>+</button>
+          <button onClick={handleAddToCart} className='add-to-cart-button'>Agregar al carrito</button>
+        </>
+      ) : (
+        <span className="out-of-stock">Sin stock</span>
+      )}
     </div>
   );
 };
